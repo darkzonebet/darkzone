@@ -1,30 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const promoPopup = document.getElementById("promoPopup");
-  const closePromo = document.getElementById("closePromo");
-
-  if (promoPopup && closePromo) {
-    const promoVista = localStorage.getItem("darkzone_promo_vista");
-
-    if (!promoVista) {
-      setTimeout(() => {
-        promoPopup.style.display = "flex";
-      }, 900);
-    }
-
-    closePromo.addEventListener("click", () => {
-      promoPopup.style.display = "none";
-      localStorage.setItem("darkzone_promo_vista", "true");
-    });
-
-    promoPopup.addEventListener("click", function (e) {
-      if (e.target === promoPopup) {
-        promoPopup.style.display = "none";
-        localStorage.setItem("darkzone_promo_vista", "true");
-      }
-    });
-  }
-
   const visitCounter = document.getElementById("visit-counter");
+  const whatsappCounter = document.getElementById("whatsapp-counter");
+
   if (visitCounter) {
     let visitas = localStorage.getItem("darkzone_visitas");
     visitas = visitas ? parseInt(visitas) + 1 : 1;
@@ -32,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     visitCounter.textContent = visitas;
   }
 
-  const whatsappCounter = document.getElementById("whatsapp-counter");
   if (whatsappCounter) {
     let whatsappClicks = localStorage.getItem("darkzone_whatsapp_clicks");
     whatsappClicks = whatsappClicks ? parseInt(whatsappClicks) : 0;
@@ -45,6 +21,33 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("darkzone_whatsapp_clicks", clicks);
         whatsappCounter.textContent = clicks;
       });
+    });
+  }
+
+  const promoPopup = document.getElementById("promoPopup");
+  const closePromo = document.getElementById("closePromo");
+
+  if (promoPopup && closePromo) {
+    const ultimaVista = localStorage.getItem("darkzone_promo_ultima_vista");
+    const ahora = Date.now();
+    const seisHoras = 6 * 60 * 60 * 1000;
+
+    if (!ultimaVista || ahora - parseInt(ultimaVista) > seisHoras) {
+      setTimeout(function () {
+        promoPopup.style.display = "flex";
+      }, 900);
+    }
+
+    closePromo.addEventListener("click", function () {
+      promoPopup.style.display = "none";
+      localStorage.setItem("darkzone_promo_ultima_vista", Date.now().toString());
+    });
+
+    promoPopup.addEventListener("click", function (e) {
+      if (e.target === promoPopup) {
+        promoPopup.style.display = "none";
+        localStorage.setItem("darkzone_promo_ultima_vista", Date.now().toString());
+      }
     });
   }
 });
