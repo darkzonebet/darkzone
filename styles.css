@@ -1,88 +1,90 @@
 .promo-popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.78);
+  background: rgba(0, 0, 0, .82);
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 999;
-  padding: 18px;
+  z-index: 9999;
+  padding: 16px;
+  backdrop-filter: blur(6px);
 }
 
-.promo-popup {
-  max-width: 520px;
-  width: 100%;
-  background:
-    linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.92)),
-    url("https://darkzonebet.github.io/darkzone/Fondo%20Web.png?v=20");
-  background-size: cover;
-  background-position: center;
-  border: 1px solid rgba(0,255,117,.75);
-  border-radius: 28px;
-  padding: 34px 24px;
+.promo-popup-card {
+  width: min(94vw, 720px);
+  background: rgba(0, 0, 0, .92);
+  border: 1px solid rgba(0, 255, 117, .75);
+  border-radius: 26px;
+  padding: 16px;
   text-align: center;
-  box-shadow:
-    0 0 35px rgba(0,255,117,.45),
-    0 0 60px rgba(128,0,255,.45);
   position: relative;
-  animation: popupEntry .35s ease;
+  box-shadow:
+    0 0 35px rgba(0, 255, 117, .45),
+    0 0 70px rgba(128, 0, 255, .55);
+  animation: promoPop .35s ease;
 }
 
-@keyframes popupEntry {
+@keyframes promoPop {
   from {
-    transform: scale(.82);
     opacity: 0;
+    transform: scale(.86);
   }
+
   to {
-    transform: scale(1);
     opacity: 1;
+    transform: scale(1);
   }
 }
 
 .promo-close {
   position: absolute;
-  top: 14px;
-  right: 16px;
-  background: transparent;
+  top: 10px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
   border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .75);
   color: white;
   font-size: 28px;
+  line-height: 38px;
   cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 0 14px rgba(0, 255, 117, .45);
 }
 
-.promo-popup h2 {
-  font-size: clamp(28px, 5vw, 42px);
-  color: #00ff75;
-  text-shadow: 0 0 22px rgba(0,255,117,.8);
-  margin-bottom: 14px;
+.promo-popup-img {
+  width: 100%;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.12);
 }
 
-.promo-popup h3 {
-  font-size: clamp(22px, 4vw, 34px);
-  color: #b770ff;
-  margin-bottom: 15px;
-  text-shadow: 0 0 18px rgba(176,0,255,.8);
+.promo-whatsapp {
+  margin-top: 16px;
+  font-size: 18px;
+  width: 100%;
+  max-width: 420px;
 }
 
-.promo-popup p {
-  color: #e8e8e8;
-  line-height: 1.45;
-  font-size: 17px;
-  margin-bottom: 18px;
+.promo-popup-small {
+  margin-top: 12px;
+  color: #bdbdbd;
+  font-size: 12px;
 }
 
-.promo-tag {
-  display: inline-block;
-  padding: 12px 18px;
-  border-radius: 16px;
-  background: linear-gradient(90deg, #6d00ff, #00c853);
-  font-weight: 900;
-  margin-bottom: 20px;
-  box-shadow: 0 0 22px rgba(0,255,117,.45);
-}
+@media (max-width: 720px) {
+  .promo-popup-card {
+    padding: 10px;
+    border-radius: 20px;
+  }
 
-.promo-small {
-  margin-top: 14px;
-  font-size: 12px !important;
-  color: #bdbdbd !important;
+  .promo-popup-img {
+    border-radius: 14px;
+  }
+
+  .promo-whatsapp {
+    font-size: 14px;
+    padding: 13px 16px;
+  }
 }
