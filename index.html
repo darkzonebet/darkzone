@@ -23,7 +23,7 @@
       color: #fff;
       background:
         linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.92)),
-        url("https://darkzonebet.github.io/darkzone/Fondo%20Web.png?v=300");
+        url("https://darkzonebet.github.io/darkzone/Fondo%20Web.png?v=500");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -243,11 +243,6 @@
       margin-top: 16px;
     }
 
-    .center {
-      text-align: center;
-      margin-top: 18px;
-    }
-
     .promo-popup-overlay {
       position: fixed;
       inset: 0;
@@ -377,7 +372,7 @@
   <header>
     <div class="brand">
       <img 
-        src="https://darkzonebet.github.io/darkzone/Logo%20Web.png?v=300" 
+        src="https://darkzonebet.github.io/darkzone/Logo%20Web.png?v=500" 
         alt="Logo DarkZone"
       >
     </div>
@@ -406,7 +401,7 @@
 
       <img 
         class="hero-banner" 
-        src="https://darkzonebet.github.io/darkzone/Banner%20Web.png?v=300" 
+        src="https://darkzonebet.github.io/darkzone/Banner%20Web.png?v=500" 
         alt="Banner DarkZone"
       >
 
@@ -571,7 +566,7 @@
 
       <img 
         class="promo-popup-img" 
-        src="https://darkzonebet.github.io/darkzone/Promo%20Web.png?v=300" 
+        src="https://darkzonebet.github.io/darkzone/Promo%20Web.png?v=500" 
         alt="Promo DarkZone 20% + 500 fichas"
       >
 
@@ -609,25 +604,17 @@
       const closePromo = document.getElementById("closePromo");
 
       if (promoPopup && closePromo) {
-        const ultimaVista = localStorage.getItem("darkzone_promo_ultima_vista");
-        const ahora = Date.now();
-        const seisHoras = 6 * 60 * 60 * 1000;
-
-        if (!ultimaVista || ahora - parseInt(ultimaVista) > seisHoras) {
-          setTimeout(function () {
-            promoPopup.style.display = "flex";
-          }, 900);
-        }
+        setTimeout(function () {
+          promoPopup.style.display = "flex";
+        }, 900);
 
         closePromo.addEventListener("click", function () {
           promoPopup.style.display = "none";
-          localStorage.setItem("darkzone_promo_ultima_vista", Date.now().toString());
         });
 
         promoPopup.addEventListener("click", function (e) {
           if (e.target === promoPopup) {
             promoPopup.style.display = "none";
-            localStorage.setItem("darkzone_promo_ultima_vista", Date.now().toString());
           }
         });
       }
