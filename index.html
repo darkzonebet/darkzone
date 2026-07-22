@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#09070d" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="robots" content="index,follow" />
+  <title>DarkZone | Tu zona, tu suerte, tu momento</title>
+  <meta name="description" content="DarkZone: plataformas, atención, promociones, novedades, invitaciones y vías oficiales de contacto." />
+  <meta property="og:title" content="DarkZone" />
+  <meta property="og:description" content="Tu zona, tu suerte, tu momento. Elegí dónde jugar, enterate de novedades y mantenete conectado por nuestras vías oficiales." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/posters/hero.webp" />
+  <link rel="preload" as="image" href="assets/posters/hero.webp" fetchpriority="high" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="config.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle" hidden>
+    <div class="age-card">
+      <img src="assets/3d/08_corona_darkzone.png" alt="" class="age-crown" />
+      <span class="kicker">DARKZONE · +18</span>
+      <h2 id="ageTitle">Este sitio es solo para mayores de 18 años.</h2>
+      <p>Al continuar confirmás que sos mayor de edad. Jugá de forma responsable.</p>
+      <div class="age-actions">
+        <button class="btn btn-primary" id="ageAccept" type="button">Soy mayor de 18</button>
+        <button class="btn btn-ghost" id="ageLeave" type="button">Salir</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="invite-strip" id="inviteStrip" hidden>
+    <div class="shell invite-strip-inner">
+      <div><span class="live-dot"></span><strong>Entraste desde una invitación DarkZone</strong><small id="inviteStripCode"></small></div>
+      <a href="#invitaciones" class="mini-link">Ver beneficio ↓</a>
+    </div>
+  </div>
+
+  <div class="topbar">
+    <div class="shell topbar-inner">
+      <div class="topbar-status"><span class="live-dot"></span><strong>Línea principal activa</strong><span>Atención disponible</span></div>
+      <div class="topbar-links">
+        <a data-wa href="#">WhatsApp</a>
+        <a data-channel href="#">Canal oficial</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header" id="inicio">
+    <div class="shell nav-shell">
+      <a href="#inicio" class="brand" aria-label="DarkZone, inicio">
+        <span class="brand-badge">DZ</span>
+        <span class="brand-name"><strong>DARKZONE</strong><small>Tu zona · Tu suerte · Tu momento</small></span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="nav" id="mainNav" aria-label="Navegación principal">
+        <a href="#plataformas">Plataformas</a>
+        <a href="#invitaciones">Invitá y ganá</a>
+        <a href="#info">Información</a>
+        <a href="#en-vivo">En vivo</a>
+        <a href="#contacto">Contacto</a>
+        <a data-channel class="nav-cta" href="#" target="_blank" rel="noopener">Canal oficial</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-pad">
+      <div class="shell hero-grid">
+        <div class="hero-copy reveal">
+          <span class="kicker">NUEVA EXPERIENCIA DARKZONE</span>
+          <h1>Tu zona de juego, <em>ahora mucho más grande.</em></h1>
+          <p class="lead">Elegí plataforma, mantenete al día, generá tu invitación y accedé a toda la información importante desde un solo lugar.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" data-wa href="#" target="_blank" rel="noopener"><span>Hablar por WhatsApp</span><b>↗</b></a>
+            <a class="btn btn-secondary" href="#plataformas">Ver plataformas</a>
+          </div>
+          <div class="hero-chips">
+            <span><i class="live-dot"></i> Atención activa</span>
+            <span>2 plataformas</span>
+            <span>+ nuevas opciones en camino</span>
+          </div>
+        </div>
+        <div class="hero-art reveal" data-tilt>
+          <div class="hero-frame">
+            <img src="assets/posters/hero.webp" alt="DarkZone, tu zona de juego" width="1536" height="1024" fetchpriority="high" />
+            <div class="hero-sheen"></div>
+          </div>
+          <img class="float-asset float-diamond" src="assets/3d/03_diamante_violeta.png" alt="" />
+          <img class="float-asset float-chip" src="assets/3d/01_ficha_dz_violeta.png" alt="" />
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">DESLIZÁ PARA DESCUBRIR <span>↓</span></div>
+    </section>
+
+    <section class="ticker" aria-label="Servicios DarkZone">
+      <div class="ticker-track">
+        <span>ATENCIÓN 24/7</span><i>◆</i><span>PLATAFORMAS</span><i>◆</i><span>INVITÁ Y GANÁ</span><i>◆</i><span>CARGAS Y RETIROS</span><i>◆</i><span>NOVEDADES</span><i>◆</i><span>CANAL OFICIAL</span><i>◆</i>
+        <span>ATENCIÓN 24/7</span><i>◆</i><span>PLATAFORMAS</span><i>◆</i><span>INVITÁ Y GANÁ</span><i>◆</i><span>CARGAS Y RETIROS</span><i>◆</i><span>NOVEDADES</span><i>◆</i><span>CANAL OFICIAL</span><i>◆</i>
+      </div>
+    </section>
+
+    <section class="section-pad" id="en-vivo">
+      <div class="shell">
+        <div class="section-title reveal">
+          <span class="kicker">DARKZONE EN VIVO</span>
+          <h2>Una comunidad que se mueve <em>en tiempo real.</em></h2>
+          <p>Los datos dinámicos se actualizan automáticamente cuando el contador está conectado.</p>
+        </div>
+        <div class="live-stage reveal">
+          <img src="assets/posters/en-vivo.webp" alt="DarkZone en vivo" loading="lazy" />
+          <div class="live-overlay-grid">
+            <article class="metric"><span>VISITAS TOTALES</span><strong id="totalVisits">—</strong><small>Sesiones registradas</small></article>
+            <article class="metric green"><span>CONECTADOS AHORA</span><strong id="onlineUsers">—</strong><small>Actividad en los últimos 90 s</small></article>
+            <article class="metric"><span>PLATAFORMAS ACTIVAS</span><strong>2</strong><small>Más opciones en camino</small></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-soft" id="plataformas">
+      <div class="shell">
+        <div class="section-title split-title reveal">
+          <div><span class="kicker">VOS ELEGÍS</span><h2>Elegí dónde <em>jugar.</em></h2></div>
+          <p>Hoy tenés dos opciones disponibles y estamos trabajando para sumar nuevas plataformas, máquinas y experiencias.</p>
+        </div>
+        <div class="platform-grid">
+          <article class="platform-card reveal bet-card">
+            <div class="platform-badge">DISPONIBLE</div>
+            <span class="platform-logo">BET<span>30</span></span>
+            <h3>Bet30</h3><p>Acceso directo. Si necesitás usuario o soporte, escribinos primero por la línea oficial.</p>
+            <a id="bet30Link" class="card-action" href="#" target="_blank" rel="noopener">Entrar a Bet30 <b>↗</b></a>
+          </article>
+          <article class="platform-card reveal ganamos-card">
+            <div class="platform-badge orange">DISPONIBLE</div>
+            <span class="platform-logo ganamos">GANAMOS<span>CO</span></span>
+            <h3>Ganamos</h3><p>Otra alternativa disponible dentro de DarkZone para que puedas elegir la experiencia que preferís.</p>
+            <a id="ganamosLink" class="card-action" href="#" target="_blank" rel="noopener">Entrar a Ganamos <b>↗</b></a>
+          </article>
+          <article class="platform-card reveal soon-card">
+            <div class="platform-badge purple">PRÓXIMAMENTE</div><span class="platform-question">?</span>
+            <h3>Más plataformas</h3><p>Estamos buscando nuevas opciones para ampliar la variedad de máquinas y juegos disponibles.</p>
+            <a data-channel class="card-action muted" href="#" target="_blank" rel="noopener">Enterate primero <b>↗</b></a>
+          </article>
+        </div>
+        <figure class="media-card reveal"><img src="assets/posters/algo-nuevo.webp" alt="Más plataformas y máquinas próximamente" loading="lazy" /><figcaption><strong>Seguimos creciendo.</strong><span>Más plataformas, más máquinas, más poder de elección.</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section-pad invite-section" id="invitaciones">
+      <div class="shell">
+        <div class="section-title reveal">
+          <span class="kicker">INVITÁ · COMPARTÍ · GANÁ</span>
+          <h2>Invitá 3 amigos y desbloqueá <em>+30%.</em></h2>
+          <p>Generá un enlace personal vinculado a tu número. Tus amigos entran desde ese enlace, crean su usuario y, una vez verificados los 3 referidos, se habilita el beneficio.</p>
+        </div>
+
+        <div class="referral-layout">
+          <div class="referral-card reveal">
+            <div class="referral-head"><div><span class="step-dot">1</span><strong>Creá tu invitación</strong></div><span class="secure-chip">Sin mostrar tu usuario</span></div>
+            <label class="input-label" for="refPhone">Tu número de WhatsApp</label>
+            <div class="phone-input-wrap"><span>+54</span><input id="refPhone" inputmode="tel" autocomplete="tel" placeholder="9 249 466 3665" maxlength="24" /></div>
+            <label class="consent"><input type="checkbox" id="refConsent" /><span>Confirmo que este número es mío y entiendo que el beneficio se valida manualmente.</span></label>
+            <button class="btn btn-primary full" id="generateReferral" type="button">Generar mi enlace <b>↗</b></button>
+            <p class="form-help" id="refStatus">El enlace usa un código aleatorio; tu nombre de usuario no aparece públicamente.</p>
+
+            <div class="ref-result" id="refResult" hidden>
+              <div class="result-top"><span>Tu código</span><strong id="refCode">DZ-••••••</strong></div>
+              <div class="link-box"><input id="refLink" readonly /><button id="copyRef" type="button" aria-label="Copiar enlace">Copiar</button></div>
+              <div class="share-row">
+                <button class="btn btn-primary" id="shareRef" type="button">📤 Compartir invitación</button>
+                <button class="btn btn-secondary" id="openRef" type="button">Abrir enlace</button>
+              </div>
+              <div class="ref-progress">
+                <div class="progress-label"><span>Referidos confirmados</span><strong><b id="confirmedRefs">0</b>/3</strong></div>
+                <div class="progress-track"><span id="refProgressBar"></span></div>
+                <small id="contactedInfo">La confirmación la realiza el equipo después de validar que sean usuarios nuevos.</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="invite-media reveal">
+            <img src="assets/posters/invitacion-pasos.webp" alt="Cómo generar y compartir tu invitación DarkZone" loading="lazy" />
+            <img class="invite-gift" src="assets/3d/11_caja_regalo_violeta.png" alt="" />
+          </div>
+        </div>
+
+        <div class="invite-steps reveal">
+          <article><span>01</span><h3>Ingresá tu número</h3><p>Lo vinculamos a un código de invitación aleatorio.</p></article>
+          <article><span>02</span><h3>Compartí</h3><p>El botón abre las opciones de compartir de tu celular.</p></article>
+          <article><span>03</span><h3>Tus amigos llegan</h3><p>El enlace los trae a DarkZone y abre WhatsApp con tu referencia.</p></article>
+          <article><span>04</span><h3>Validamos 3/3</h3><p>Con tres usuarios nuevos confirmados, se habilita el +30%.</p></article>
+        </div>
+
+        <div class="share-preview reveal">
+          <div class="share-preview-copy"><span class="kicker">EL MENSAJE TAMBIÉN COMPARTE</span><h3>Tu invitación + la web + el canal oficial.</h3><p>Así la persona invitada puede conocernos, seguir las novedades y después generar su propia invitación.</p></div>
+          <div class="share-bubbles"><span>🔗 Tu invitación</span><span>🌐 Sitio oficial</span><span>📢 Canal oficial</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-soft" id="info">
+      <div class="shell">
+        <div class="section-title reveal"><span class="kicker">TODO CLARO, EN UN SOLO LUGAR</span><h2>Información <em>importante.</em></h2><p>Elegí una categoría para ver las condiciones principales. Las imágenes completas también están disponibles más abajo.</p></div>
+        <div class="info-tabs reveal" role="tablist" aria-label="Información DarkZone">
+          <button class="info-tab active" type="button" data-tab="acumulacion">Acumulación</button>
+          <button class="info-tab" type="button" data-tab="horarios">24/7</button>
+          <button class="info-tab" type="button" data-tab="bonus">Bonus</button>
+          <button class="info-tab" type="button" data-tab="reglas">Reglas</button>
+        </div>
+
+        <div class="info-panels">
+          <article class="info-panel active reveal" id="tab-acumulacion">
+            <div class="info-copy"><span class="kicker">ACUMULACIÓN DE FICHAS</span><h3>Más libertad para administrar tus fichas.</h3><ul class="check-list"><li>Podés acumular desde <strong>$1.000 por encima de tu carga</strong>.</li><li>Podés volver a subir fichas a la plataforma sin hacer una nueva transferencia.</li><li>Podés retirar el acumulado todo junto en una sola transferencia.</li><li>Las fichas pueden bajarse y quedar registradas <strong>a favor</strong> en el chat.</li></ul></div>
+            <button class="poster-button" data-poster="assets/posters/acumulacion.webp" data-title="Acumulación de fichas"><img src="assets/posters/acumulacion.webp" alt="Información sobre acumulación de fichas" loading="lazy" /><span>Ampliar ↗</span></button>
+          </article>
+          <article class="info-panel" id="tab-horarios">
+            <div class="info-copy"><span class="kicker">ATENCIÓN 24/7</span><h3>Cargas, retiros y atención todos los días.</h3><ul class="check-list"><li><strong>Carga mínima: $1.000.</strong></li><li><strong>Retiro mínimo: $1.000 por encima de lo cargado.</strong></li><li>Slots, ruletas, blackjack, deportivas y otros juegos.</li><li>Usá siempre las líneas oficiales publicadas en la web y el canal.</li></ul></div>
+            <button class="poster-button" data-poster="assets/posters/24-7.webp" data-title="Atención 24/7"><img src="assets/posters/24-7.webp" alt="DarkZone activo 24 horas" loading="lazy" /><span>Ampliar ↗</span></button>
+          </article>
+          <article class="info-panel" id="tab-bonus">
+            <div class="info-copy"><span class="kicker">CONDICIONES DEL BONUS</span><h3>El retiro con bonus requiere alcanzar el doble de la carga.</h3><div class="bonus-example"><span>Cargás <b>$10.000</b></span><strong>×2</strong><span>Retirás desde <b>$20.000</b></span></div><p>La promoción está pensada para jugar. El beneficio por invitación se habilita luego de validar los 3 referidos nuevos.</p></div>
+            <button class="poster-button" data-poster="assets/posters/condiciones-bonus.webp" data-title="Condiciones del bonus"><img src="assets/posters/condiciones-bonus.webp" alt="Condiciones del bonus DarkZone" loading="lazy" /><span>Ampliar ↗</span></button>
+          </article>
+          <article class="info-panel" id="tab-reglas">
+            <div class="info-copy"><span class="kicker">REGLAS IMPORTANTES</span><h3>Antes de operar, tené esto en cuenta.</h3><ul class="check-list"><li>Las operaciones confirmadas <strong>no se revierten</strong>. Consultá antes de confirmar.</li><li>Los comprobantes tienen <strong>1 hora de vigencia</strong>.</li><li>Usá únicamente nuestras <strong>vías oficiales</strong>.</li><li>Servicio exclusivo para mayores de 18 años. Jugá responsablemente.</li></ul></div>
+            <button class="poster-button" data-poster="assets/posters/reglas.webp" data-title="Reglas importantes"><img src="assets/posters/reglas.webp" alt="Reglas importantes DarkZone" loading="lazy" /><span>Ampliar ↗</span></button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad">
+      <div class="shell">
+        <div class="feature-split reveal">
+          <div class="feature-copy"><span class="kicker">CÓMO EMPEZAR</span><h2>Simple, directo y acompañado.</h2><div class="feature-steps"><div><b>01</b><span><strong>Contactanos</strong><small>Escribinos por la línea principal.</small></span></div><div><b>02</b><span><strong>Creá tu usuario</strong><small>Te ayudamos con el alta.</small></span></div><div><b>03</b><span><strong>Elegí plataforma</strong><small>Entrá donde prefieras.</small></span></div></div><a data-wa class="btn btn-primary" href="#" target="_blank" rel="noopener">Quiero empezar <b>↗</b></a></div>
+          <button class="poster-button large" data-poster="assets/posters/como-empezar.webp" data-title="Cómo empezar"><img src="assets/posters/como-empezar.webp" alt="Cómo empezar en DarkZone" loading="lazy" /></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-soft" id="contacto">
+      <div class="shell">
+        <div class="contact-grid">
+          <div class="contact-copy reveal"><span class="kicker">VÍAS OFICIALES</span><h2>No pierdas el contacto con <em>DarkZone.</em></h2><p>La línea principal sirve para usuarios, consultas y reclamos. El canal es donde comunicamos cambios de números, novedades y promociones.</p>
+            <div class="contact-actions"><a data-wa class="btn btn-primary" href="#" target="_blank" rel="noopener">WhatsApp principal ↗</a><a data-channel class="btn btn-secondary" href="#" target="_blank" rel="noopener">Seguir canal oficial</a></div>
+            <div class="number-box"><span>LÍNEA PRINCIPAL</span><strong id="waDisplay">+54 9 249 466-3665</strong><button id="copyNumber" type="button">Copiar número</button></div>
+            <p class="contact-note">Si esta línea cambia o queda temporalmente fuera de servicio, lo vamos a comunicar por el canal oficial.</p>
+          </div>
+          <button class="poster-button large reveal" data-poster="assets/posters/contacto.webp" data-title="Vías oficiales"><img src="assets/posters/contacto.webp" alt="Vías oficiales de DarkZone" loading="lazy" /></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad gallery-section" id="galeria">
+      <div class="shell">
+        <div class="section-title reveal"><span class="kicker">CENTRO VISUAL</span><h2>Todo el material <em>oficial.</em></h2><p>Tocá cualquier imagen para verla completa.</p></div>
+        <div class="poster-grid reveal">
+          <button data-poster="assets/posters/invita-3.webp" data-title="Invitá 3 amigos"><img src="assets/posters/invita-3.webp" alt="Invitá 3 amigos y ganá 30%" loading="lazy" /><span>Invitá 3 amigos</span></button>
+          <button data-poster="assets/posters/bonus-desbloqueado.webp" data-title="Bonus desbloqueado"><img src="assets/posters/bonus-desbloqueado.webp" alt="Bonus desbloqueado" loading="lazy" /><span>Bonus desbloqueado</span></button>
+          <button data-poster="assets/posters/plataformas.webp" data-title="Elegí dónde jugar"><img src="assets/posters/plataformas.webp" alt="Elegí dónde jugar" loading="lazy" /><span>Elegí dónde jugar</span></button>
+          <button data-poster="assets/posters/canal-oficial.webp" data-title="Canal oficial"><img src="assets/posters/canal-oficial.webp" alt="Canal oficial DarkZone" loading="lazy" /><span>Canal oficial</span></button>
+          <button data-poster="assets/posters/siempre-conectados.webp" data-title="Siempre conectados"><img src="assets/posters/siempre-conectados.webp" alt="Siempre conectados" loading="lazy" /><span>Siempre conectados</span></button>
+          <button data-poster="assets/posters/en-vivo.webp" data-title="DarkZone en vivo"><img src="assets/posters/en-vivo.webp" alt="DarkZone en vivo" loading="lazy" /><span>DarkZone en vivo</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad faq-section" id="faq">
+      <div class="shell faq-shell">
+        <div class="section-title reveal"><span class="kicker">PREGUNTAS FRECUENTES</span><h2>Lo esencial, <em>sin vueltas.</em></h2></div>
+        <div class="faq-list reveal">
+          <article class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>¿Cómo consigo un usuario?</span><b>+</b></button><div class="faq-a"><p>Escribí a la línea principal, elegí la plataforma y el equipo te guía con el alta.</p></div></article>
+          <article class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>¿Cómo funciona el beneficio de 3 amigos?</span><b>+</b></button><div class="faq-a"><p>Generás tu link, lo compartís y tus amigos deben crear usuarios nuevos desde esa referencia. Cuando se verifican 3 referidos, se habilita el +30% en la recarga elegible.</p></div></article>
+          <article class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>¿Qué pasa si cambia el número de atención?</span><b>+</b></button><div class="faq-a"><p>Los cambios de línea se comunican siempre por este sitio y por el canal oficial de WhatsApp.</p></div></article>
+          <article class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>¿Van a agregar más plataformas?</span><b>+</b></button><div class="faq-a"><p>Sí. Estamos trabajando para ampliar la oferta con nuevas plataformas y máquinas. Las novedades se anuncian por el canal oficial.</p></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div><div class="brand footer-brand"><span class="brand-badge">DZ</span><span class="brand-name"><strong>DARKZONE</strong><small>Tu zona · Tu suerte · Tu momento</small></span></div><p>Información, plataformas, novedades y contacto oficial en un solo lugar.</p></div>
+      <div><strong>Accesos</strong><a href="#plataformas">Plataformas</a><a href="#invitaciones">Invitaciones</a><a href="#info">Información</a></div>
+      <div><strong>Contacto</strong><a data-wa href="#" target="_blank" rel="noopener">Línea principal</a><a data-channel href="#" target="_blank" rel="noopener">Canal oficial</a></div>
+      <div class="footer-18"><span>+18</span><p>Solo para mayores de 18 años. Jugá responsablemente.</p></div>
+    </div>
+    <div class="shell footer-bottom"><span>© <b id="year"></b> DarkZone</span><span>Las marcas y plataformas mencionadas pertenecen a sus respectivos titulares.</span></div>
+  </footer>
+
+  <div class="floating-dock" aria-label="Accesos rápidos">
+    <a data-wa href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><span>✆</span><small>WhatsApp</small></a>
+    <a data-channel href="#" target="_blank" rel="noopener" aria-label="Canal oficial"><span>◉</span><small>Canal</small></a>
+    <button id="backTop" type="button" aria-label="Volver arriba"><span>↑</span><small>Arriba</small></button>
+  </div>
+
+  <dialog class="poster-modal" id="posterModal">
+    <button class="modal-close" id="posterClose" type="button" aria-label="Cerrar">×</button>
+    <div class="poster-modal-inner"><h3 id="posterTitle"></h3><img id="posterImage" alt="" /></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
