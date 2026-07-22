@@ -10,6 +10,6 @@ window.DZ_CONFIG = {
 
   // Para activar el contador real de visitas/conectados y el sistema de referidos,
   // completá estos 2 valores luego de ejecutar setup/supabase.sql en Supabase.
-  supabaseUrl: "",
-  supabaseAnonKey: ""
+  supabaseUrl: "https://lswcwahjpztmbchybwcb.supabase.co",
+  supabaseAnonKey: "sb_publishable_xMx6GcW_SKLQ1CW0s37CwQ_YtmAbgYS"
 };
